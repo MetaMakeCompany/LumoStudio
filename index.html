@@ -28,6 +28,86 @@
     .section-title.text-white::after {
         background-color: #fff;
     }
+.footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #d1d9e6;
+  font-size: 0.95rem;
+  font-weight: 400;
+  box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-title {
+  color: #ecf0f1;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: #d1d9e6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.15);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subscribe-form input.form-control {
+  background: #415a72;
+  border: none;
+  color: #ecf0f1;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form input.form-control::placeholder {
+  color: #aab7c4;
+}
+
+.subscribe-form input.form-control:focus {
+  background: #527aaf;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 0 6px #3498db;
+}
+
+.subscribe-form .btn-primary {
+  background-color: #3498db;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscribe-form .btn-primary:hover,
+.subscribe-form .btn-primary:focus {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(41, 128, 185, 0.6);
+}
+
+@media (max-width: 576px) {
+  .subscribe-form {
+    flex-direction: column !important;
+  }
+
+  .subscribe-form .btn-primary {
+    width: 100%;
+  }
+}
+
 .contact-card {
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
@@ -413,34 +493,35 @@
     </div>
 </div>
 
-<footer>
-    <div class="container">
-        <div class="row text-center text-md-start">
-            <div class="col-md-4">
-                <h5>О компании</h5>
-                <p>Мы — команда Lumo Studio. Помогаем бизнесам расти в цифровом мире с 2025 года.</p>
-            </div>
-            <div class="col-md-4">
-                <h5>Навигация</h5>
-                <ul class="list-unstyled">
-                    <li><a href="#portfolio">Портфолио</a></li>
-                    <li><a href="#blog">Блог</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <h5>Подпишитесь</h5>
-                <p>Новости и акции на вашу почту</p>
-                <form>
-                    <input type="email" class="form-control mb-2" placeholder="Ваш email">
-                    <button class="btn btn-primary w-100" type="submit">Подписаться</button>
-                </form>
-            </div>
-        </div>
-        <div class="text-center mt-4">
-            &copy; 2025 LumoStudio. Все права защищены.
-        </div>
+<footer class="footer bg-dark text-light py-5">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="footer-title mb-3">О компании</h5>
+        <p>Мы — команда Lumo Studio. Помогаем бизнесам расти в цифровом мире с 2025 года.</p>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="footer-title mb-3">Навигация</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#portfolio">Портфолио</a></li>
+          <li><a href="#blog">Блог</a></li>
+          <li><a href="#contact">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5 class="footer-title mb-3">Подпишитесь</h5>
+        <p>Новости и акции на вашу почту</p>
+        <form class="subscribe-form d-flex flex-column flex-sm-row gap-2" onsubmit="event.preventDefault(); alert('Спасибо за подписку!');">
+          <input type="email" class="form-control" placeholder="Ваш email" required>
+          <button class="btn btn-primary px-4" type="submit">Подписаться</button>
+        </form>
+      </div>
     </div>
+    <hr class="footer-divider my-4">
+    <div class="text-center small opacity-75">
+      &copy; 2025 LumoStudio. Все права защищены.
+    </div>
+  </div>
 </footer>
 
 
