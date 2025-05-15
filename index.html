@@ -24,6 +24,39 @@
     .bg-secondary {
         background-color: #3498db !important;
     }
+   .service-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+      background-color: #fff;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .service-image {
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-card ul li {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-card .btn-custom {
+      font-size: 1rem;
+      padding: 0.5rem 0;
+    }
 .service-image {
     height: 200px;
     object-fit: cover;
