@@ -28,6 +28,66 @@
     .section-title.text-white::after {
         background-color: #fff;
     }
+.contact-card {
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.contact-card i {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.contact-card:hover {
+  background-color: #2980b9; /* чуть темнее */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-6px);
+}
+
+.contact-card:hover i {
+  animation: bounce 0.6s ease;
+  transform: scale(1.2);
+}
+
+/* Анимация подпрыгивания */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Подсказка */
+.contact-card[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  visibility: visible;
+}
+
+.contact-card[data-tooltip]::after {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
