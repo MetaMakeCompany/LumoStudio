@@ -1,74 +1,266 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigitalStudio | Цифровые решения для бизнеса</title>
+    <title>LumoStudio | Цифровые решения для бизнеса</title>
+    
+    <!-- Стили -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png">
+    
     <style>
+        :root {
+            --primary: #2c3e50;    /* Основной цвет */
+            --secondary: #3498db;  /* Вторичный цвет */
+            --accent: #e74c3c;     /* Акцентный цвет */
+            --text: #34495e;       /* Цвет текста */
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
         body {
-            font-family: 'Segoe UI', sans-serif;
-            color: #34495e;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
             padding-top: 80px;
         }
+
+        /* Навигация */
+        .nav-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Главный баннер */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            padding: 140px 0 100px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-top: -80px;
+        }
+
+        /* Секции */
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 3rem;
             text-align: center;
             position: relative;
         }
+
         .section-title:after {
             content: '';
             display: block;
             width: 60px;
             height: 4px;
-            background: #3498db;
-            margin: 0.5rem auto;
+            background: var(--secondary);
+            margin: 1rem auto;
             border-radius: 2px;
         }
-        footer {
-            background: #2c3e50;
+
+        /* Карточки услуг */
+        .service-card {
+            transition: var(--transition);
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .service-image {
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        /* Кнопки */
+        .btn-custom {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Кнопка "Наверх" */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
             color: white;
-            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
         }
-        footer a {
-            color: #bdc3c7;
-            text-decoration: none;
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
         }
-        footer a:hover {
-            text-decoration: underline;
+
+        /* Модальные окна */
+        .modal-content {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-image {
+                height: 180px;
+            }
         }
     </style>
 </head>
 <body class="bg-light">
 
-<header class="text-white bg-dark py-5 text-center">
+<!-- Прелоадер -->
+<div class="preloader">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Загрузка...</span>
+    </div>
+</div>
+
+<!-- Кнопка "Наверх" -->
+<div class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav-shadow">
     <div class="container">
-        <h1 class="display-4 fw-bold">DigitalStudio</h1>
-        <p class="lead">Цифровые решения для вашего бизнеса</p>
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <i class="fas fa-rocket me-2"></i>
+            LumoStudio
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Портфолио</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blog">Блог</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#authModal">
+                        <i class="fas fa-user me-2"></i>Личный кабинет
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Главный баннер -->
+<header class="hero-section text-white">
+    <div class="container text-center">
+        <h1 class="display-3 fw-bold mb-4">Цифровые решения <br>для вашего бизнеса</h1>
+        <p class="lead mb-4 fs-5 opacity-75">От идеи до реализации - полный цикл разработки</p>
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="#services" class="btn btn-lg btn-primary btn-custom">
+                <i class="fas fa-code me-2"></i>Наши услуги
+            </a>
+            <a href="#contact" class="btn btn-lg btn-outline-light btn-custom">
+                <i class="fas fa-phone me-2"></i>Контакты
+            </a>
+        </div>
     </div>
 </header>
 
-<section id="portfolio" class="py-5 bg-white text-center">
+<!-- Секция услуг -->
+<section id="services" class="py-5">
     <div class="container">
-        <h2 class="section-title">Портфолио</h2>
-        <p>Скоро здесь появятся наши работы!</p>
-    </div>
-</section>
-
-<section id="blog" class="py-5 bg-light text-center">
-    <div class="container">
-        <h2 class="section-title">Блог</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <h5>Зачем бизнесу нужен сайт?</h5>
-                <p>Онлайн-присутствие увеличивает доверие клиентов и продажи. Подробнее скоро!</p>
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="row g-4">
+            <!-- Веб-разработка -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/random/800x600?website" class="service-image w-100" alt="Веб-разработка">
+                    <div class="p-4">
+                        <h3 class="mb-3">Веб-разработка</h3>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="fas fa-check text-success me-2"></i>Корпоративные сайты</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Интернет-магазины</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Web-приложения</li>
+                        </ul>
+                        <button class="btn btn-primary w-100 btn-custom" data-bs-toggle="modal" data-bs-target="#orderModal">
+                            Заказать от 25 000₴
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h5>Топ 5 ошибок при запуске стартапа</h5>
-                <p>Анализ самых распространенных промахов в IT-бизнесе. Подробнее скоро!</p>
+
+            <!-- Дизайн -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/random/800x600?design" class="service-image w-100" alt="Дизайн">
+                    <div class="p-4">
+                        <h3 class="mb-3">Дизайн</h3>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="fas fa-check text-success me-2"></i>Логотипы</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Фирменный стиль</li>
+                            <li><i class="fas fa-check text-success me-2"></i>UI/UX дизайн</li>
+                        </ul>
+                        <button class="btn btn-primary w-100 btn-custom" data-bs-toggle="modal" data-bs-target="#orderModal">
+                            Заказать от 12 500₴
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Переводы -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-card">
+                    <img src="https://source.unsplash.com/random/800x600?translator" class="service-image w-100" alt="Переводы">
+                    <div class="p-4">
+                        <h3 class="mb-3">Переводы</h3>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="fas fa-check text-success me-2"></i>Технические переводы</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Копирайтинг</li>
+                            <li><i class="fas fa-check text-success me-2"></i>SEO-оптимизация</li>
+                        </ul>
+                        <button class="btn btn-primary w-100 btn-custom" data-bs-toggle="modal" data-bs-target="#orderModal">
+                            Заказать от 1000₴/час
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -81,17 +273,62 @@
         <p>
             <i class="fab fa-telegram"></i> Telegram: <a href="https://t.me/LumoCompany">@LumoCompany</a><br>
             <i class="fas fa-envelope"></i> Email: info@lumo.studio<br>
-            <i class="fas fa-phone"></i> Телефон: +7 (900) 123-45-67
+            <i class="fas fa-phone"></i> Телефон: +380 (99) 119 4223
         </p>
     </div>
 </section>
+
+<!-- Модальное окно заказа -->
+<div class="modal fade" id="orderModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Оформление заказа</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="https://source.unsplash.com/random/800x600?order" class="service-image w-100 rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <form id="orderForm" class="needs-validation" novalidate>
+                            <div class="mb-3">
+                                <input type="text" class="form-control form-control-lg" placeholder="Ваше имя" required>
+                                <div class="invalid-feedback">Пожалуйста, введите ваше имя</div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control form-control-lg" placeholder="Email" required>
+                                <div class="invalid-feedback">Пожалуйста, введите корректный email</div>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select form-select-lg" required>
+                                    <option value="">Выберите услугу</option>
+                                    <option>Веб-разработка</option>
+                                    <option>Дизайн</option>
+                                    <option>Переводы</option>
+                                </select>
+                                <div class="invalid-feedback">Пожалуйста, выберите услугу</div>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control form-control-lg" rows="4" placeholder="Описание проекта" required></textarea>
+                                <div class="invalid-feedback">Пожалуйста, опишите ваш проект</div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 btn-custom">Отправить заявку</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer>
     <div class="container">
         <div class="row text-center text-md-start">
             <div class="col-md-4">
                 <h5>О компании</h5>
-                <p>Мы — команда DigitalStudio. Помогаем бизнесам расти в цифровом мире с 2024 года.</p>
+                <p>Мы — команда Lumo Studio. Помогаем бизнесам расти в цифровом мире с 2025 года.</p>
             </div>
             <div class="col-md-4">
                 <h5>Навигация</h5>
@@ -111,10 +348,90 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            &copy; 2025 DigitalStudio. Все права защищены.
+            &copy; 2025 LumoStudio. Все права защищены.
         </div>
     </div>
 </footer>
 
+
+<!-- Скрипты -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Инициализация после загрузки страницы
+    document.addEventListener('DOMContentLoaded', () => {
+        // Скрыть прелоадер
+        document.querySelector('.preloader').style.display = 'none';
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+                }
+            });
+        });
+
+        // Кнопка "Наверх"
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.classList.toggle('show', window.scrollY > 300);
+        });
+
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Обработка формы
+        const form = document.getElementById('orderForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!form.checkValidity()) {
+                e.stopPropagation();
+                form.classList.add('was-validated');
+                return;
+            }
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Отправка...';
+
+            try {
+                // Здесь код для отправки данных
+                // Пример для Telegram:
+                const botToken = 'ВАШ_BOT_TOKEN';
+                const chatId = 'ВАШ_CHAT_ID';
+                const formData = {
+                    name: e.target[0].value,
+                    email: e.target[1].value,
+                    service: e.target[2].value,
+                    details: e.target[3].value
+                };
+
+                const text = 📝 Новая заявка!\nИмя: ${formData.name}\nEmail: ${formData.email}\nУслуга: ${formData.service}\nОписание: ${formData.details};
+                
+                await fetch(https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)});
+                
+                submitBtn.innerHTML = '✅ Отправлено!';
+                setTimeout(() => {
+                    bootstrap.Modal.getInstance(document.getElementById('orderModal')).hide();
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Отправить заявку';
+                }, 1500);
+            } catch (error) {
+                submitBtn.innerHTML = '❌ Ошибка!';
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Отправить заявку';
+                }, 2000);
+                console.error('Ошибка:', error);
+            }
+        });
+    });
+</script>
 </body>
 </html>
