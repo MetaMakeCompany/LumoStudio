@@ -320,6 +320,73 @@
   scrollbar-color: #3498db #2c3e50; /* Цвет ползунка и дорожки */
 }
 
+#blog .card {
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#blog .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+#blog .card-title {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+#blog .card-text {
+  color: var(--text);
+}
+
+#blog .btn-outline-primary:hover {
+  background-color: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+#portfolio .img-fluid {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#portfolio .img-fluid:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+#portfolio h5 {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+#portfolio p {
+  color: var(--text);
+}
+
+#team img {
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+#team img:hover {
+  transform: scale(1.05);
+}
+
+#team h5 {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+#team p {
+  color: var(--secondary);
+  font-style: italic;
+}
+
 
     </style>
 </head>
