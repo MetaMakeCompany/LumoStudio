@@ -932,12 +932,17 @@
 <script>
   window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
-    preloader.style.opacity = '0';
+
+    // Ожидаем минимум 3 секунды, даже если страница загрузилась быстрее
     setTimeout(() => {
-      preloader.style.display = 'none';
-    }, 600);
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600); // Время исчезновения
+    }, 3000); // Минимальная задержка 3 секунды (можешь поставить 4000 для 4 сек.)
   });
 </script>
+
 
 </body>
 </html>
