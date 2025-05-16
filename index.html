@@ -291,6 +291,36 @@
                 height: 180px;
             }
         }
+		
+/* Скроллбар для WebKit-браузеров (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c3e50;         /* Темный фон дорожки — под основной цвет сайта */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3498db, #2980b9); /* Градиент от светлого к темному синему */
+  border-radius: 8px;
+  border: 2px solid #2c3e50;  /* Отступ для аккуратности */
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2980b9, #1f618d); /* Более темный градиент при наведении */
+}
+
+/* Для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #2c3e50; /* Цвет ползунка и дорожки */
+}
+
+
     </style>
 </head>
 <body class="bg-light">
@@ -760,5 +790,20 @@
         });
     });
 </script>
+<div class="modal fade" id="authModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Личный кабинет</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="fas fa-user-lock fa-3x mb-3 text-secondary"></i>
+        <p class="mb-4">Раздел находится в разработке. Скоро здесь появится вход в аккаунт.</p>
+        <button class="btn btn-outline-secondary w-100" disabled>Войти</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
