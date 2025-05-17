@@ -1,58 +1,220 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>LumoStudio | Цифровые решения для бизнеса</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" rel="stylesheet"/>
-    <link href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" rel="icon" type="image/png"/>
-    <style>
-        /* Прелоадер */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #2c3e50;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s ease;
-        }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LumoStudio | Цифровые решения для бизнеса</title>
+<!-- Стили -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" rel="icon" type="image/png"/>
+<style>
+/* Прелоадер — полный экран */
+#preloader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #2c3e50; /* фирменный цвет */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
 
-        #preloader.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
+/* Содержимое прелоадера — центрируем вертикально */
+.preloader-content {
+  text-align: center;
+  color: white;
+  user-select: none;
+}
 
-        .preloader-content {
-            text-align: center;
-            color: white;
-        }
+/* Логотип */
+.preloader-content img {
+  width: 120px;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
 
-        .preloader-content img {
-            width: 120px;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
+/* Название */
+.preloader-content h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  margin: 0;
+  text-transform: uppercase;
+}
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.7; }
-        }
+/* Анимация пульсации */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
 
-        /* Остальные оригинальные стили */
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --text: #34495e;
+            --primary: #2c3e50;    /* Основной цвет */
+            --secondary: #3498db;  /* Вторичный цвет */
+            --accent: #e74c3c;     /* Акцентный цвет */
+            --text: #34495e;       /* Цвет текста */
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
+    .bg-secondary {
+        background-color: #3498db !important;
+    }
+
+    .section-title.text-white::after {
+        background-color: #fff;
+    }
+.footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #d1d9e6;
+  font-size: 0.95rem;
+  font-weight: 400;
+  box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-title {
+  color: #ecf0f1;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: #d1d9e6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.15);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subscribe-form input.form-control {
+  background: #415a72;
+  border: none;
+  color: #ecf0f1;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form input.form-control::placeholder {
+  color: #aab7c4;
+}
+
+.subscribe-form input.form-control:focus {
+  background: #527aaf;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 0 6px #3498db;
+}
+
+.subscribe-form .btn-primary {
+  background-color: #3498db;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscribe-form .btn-primary:hover,
+.subscribe-form .btn-primary:focus {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(41, 128, 185, 0.6);
+}
+
+@media (max-width: 576px) {
+  .subscribe-form {
+    flex-direction: column !important;
+  }
+
+  .subscribe-form .btn-primary {
+    width: 100%;
+  }
+}
+
+.contact-card {
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.contact-card i {
+  transition: transform 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.contact-card:hover {
+  background-color: #2980b9; /* чуть темнее */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-6px);
+}
+
+.contact-card:hover i {
+  animation: bounce 0.6s ease;
+  transform: scale(1.2);
+}
+
+/* Анимация подпрыгивания */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Подсказка */
+.contact-card[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  visibility: visible;
+}
+
+.contact-card[data-tooltip]::after {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
@@ -61,159 +223,726 @@
             padding-top: 80px;
         }
 
-        /* ... Все остальные стили из вашего оригинала ... */
-
-        /* Стили для новой формы */
-        #priceDisplay {
-            background: linear-gradient(135deg, #f8f9fa, #ecf0f1);
-            border: 2px solid #3498db33;
-            color: #2c3e50;
-            padding: 15px;
-            border-radius: 12px;
-            backdrop-filter: blur(4px);
+        /* Навигация */
+        .nav-shadow {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
-        .form-check-input:checked {
-            background-color: #3498db;
-            border-color: #3498db;
+        /* Главный баннер */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            padding: 140px 0 100px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-top: -80px;
         }
 
-        .phone-input { direction: ltr; }
-        
-        .accordion-button:not(.collapsed) {
-            background-color: #f8f9fa;
+        /* Секции */
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
         }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Карточки услуг */
+        .service-card {
+            transition: var(--transition);
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .service-image {
+            height: 240px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        /* Кнопки */
+        .btn-custom {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Кнопка "Наверх" */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Модальные окна */
+        .modal-content {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 60px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-image {
+                height: 180px;
+            }
+        }
+		
+/* Скроллбар для WebKit-браузеров (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2c3e50;         /* Темный фон дорожки — под основной цвет сайта */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3498db, #2980b9); /* Градиент от светлого к темному синему */
+  border-radius: 8px;
+  border: 2px solid #2c3e50;  /* Отступ для аккуратности */
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2980b9, #1f618d); /* Более темный градиент при наведении */
+}
+
+/* Для Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #3498db #2c3e50; /* Цвет ползунка и дорожки */
+}
+
+#blog .card {
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#blog .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+#blog .card-title {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+#blog .card-text {
+  color: var(--text);
+}
+
+#blog .btn-outline-primary:hover {
+  background-color: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+#portfolio .img-fluid {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#portfolio .img-fluid:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+#portfolio h5 {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+#portfolio p {
+  color: var(--text);
+}
+
+#team img {
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+#team img:hover {
+  transform: scale(1.05);
+}
+
+#team h5 {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+#team p {
+  color: var(--secondary);
+  font-style: italic;
+}
+
+
     </style>
 </head>
 <body class="bg-light">
-    <!-- Прелоадер -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="Lumo Studio"/>
-            <h1>Lumo Studio</h1>
-        </div>
-    </div>
+<!-- Прелоадер -->
+<div id="preloader">
+  <div class="preloader-content">
+    <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="Lumo Studio" />
+    <h1>Lumo Studio</h1>
+  </div>
+</div>
 
-    <!-- Навигация -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav-shadow">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <i class="fas fa-rocket me-2"></i>
-                LumoStudio
+<div class="preloader">
+<div class="spinner-border text-primary" role="status">
+<span class="visually-hidden">Загрузка...</span>
+</div>
+</div>
+<!-- Кнопка "Наверх" -->
+<div aria-label="Наверх" class="back-to-top">
+<i class="fas fa-arrow-up"></i>
+</div>
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top nav-shadow">
+<div class="container">
+<a class="navbar-brand d-flex align-items-center" href="#">
+<i class="fas fa-rocket me-2"></i>
+            LumoStudio
+        </a>
+<button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
+<li class="nav-item"><a class="nav-link" href="#portfolio">Портфолио</a></li>
+<li class="nav-item"><a class="nav-link" href="#blog">Блог</a></li>
+<li class="nav-item"><a class="nav-link" href="#team">Наша команда</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+<li class="nav-item">
+<button class="btn btn-outline-light ms-3" data-bs-target="#authModal" data-bs-toggle="modal">
+<i class="fas fa-user me-2"></i>Личный кабинет
+                    </button>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Главный баннер -->
+<header class="hero-section text-white">
+<div class="container text-center">
+<h1 class="display-3 fw-bold mb-4">Цифровые решения <br/>для вашего бизнеса</h1>
+<p class="lead mb-4 fs-5 opacity-75">От идеи до реализации - полный цикл разработки</p>
+<div class="d-flex gap-3 justify-content-center">
+<a class="btn btn-lg btn-primary btn-custom" href="#services">
+<i class="fas fa-code me-2"></i>Наши услуги
             </a>
-            <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="modal" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Портфолио</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blog">Блог</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#team">Команда</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-light ms-3" data-bs-target="#authModal" data-bs-toggle="modal">
-                            <i class="fas fa-user me-2"></i>Личный кабинет
+<a class="btn btn-lg btn-outline-light btn-custom" href="#contact">
+<i class="fas fa-phone me-2"></i>Контакты
+            </a>
+</div>
+</div>
+</header>
+<!-- Секция услуг -->
+<section class="py-5" id="services">
+<div class="container">
+<h2 class="section-title">Наши услуги</h2>
+<div class="row g-4">
+<!-- Веб-разработка -->
+<div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Веб-разработка" class="service-image w-100" src="https://www.it-courses.by/wp-content/uploads/2018/06/20-Most-Common-Work-from-Home-Job-Titles.jpg"/>
+<div class="p-4">
+<h3 class="mb-3">Веб-разработка</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Корпоративные сайты</li>
+<li><i class="fas fa-check text-success me-2"></i>Интернет-магазины</li>
+<li><i class="fas fa-check text-success me-2"></i>Web-приложения</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 25 000₴
                         </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+</div>
+</div>
+</div>
+<!-- Дизайн -->
+<div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Дизайн" class="service-image w-100" src="https://seo-lebedev.ru/wp-content/webp-express/webp-images/uploads/2024/05/160890.jpg.webp"/>
+<div class="p-4">
+<h3 class="mb-3">Дизайн</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Логотипы</li>
+<li><i class="fas fa-check text-success me-2"></i>Фирменный стиль</li>
+<li><i class="fas fa-check text-success me-2"></i>UI/UX дизайн</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 12 500₴
+                        </button>
+</div>
+</div>
+</div>
+<!-- Переводы -->
+<div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Переводы" class="service-image w-100" src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-multilingual-students-chat-on-phone-greeting-in-different-languages-vector-png-image_12550767.png"/>
+<div class="p-4">
+<h3 class="mb-3">Переводы</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Технические переводы</li>
+<li><i class="fas fa-check text-success me-2"></i>Копирайтинг</li>
+<li><i class="fas fa-check text-success me-2"></i>SEO-оптимизация</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 1000₴/час
+                        </button>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Веб-разработка" class="service-image w-100" src="https://www.it-courses.by/wp-content/uploads/2018/06/20-Most-Common-Work-from-Home-Job-Titles.jpg"/>
+<div class="p-4">
+<h3 class="mb-3">Веб-разработка</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Корпоративные сайты</li>
+<li><i class="fas fa-check text-success me-2"></i>Интернет-магазины</li>
+<li><i class="fas fa-check text-success me-2"></i>Web-приложения</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 25 000₴
+                        </button>
+</div>
+</div>
+</div><div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Дизайн" class="service-image w-100" src="https://seo-lebedev.ru/wp-content/webp-express/webp-images/uploads/2024/05/160890.jpg.webp"/>
+<div class="p-4">
+<h3 class="mb-3">Дизайн</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Логотипы</li>
+<li><i class="fas fa-check text-success me-2"></i>Фирменный стиль</li>
+<li><i class="fas fa-check text-success me-2"></i>UI/UX дизайн</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 12 500₴
+                        </button>
+</div>
+</div>
+</div><div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Переводы" class="service-image w-100" src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-multilingual-students-chat-on-phone-greeting-in-different-languages-vector-png-image_12550767.png"/>
+<div class="p-4">
+<h3 class="mb-3">Переводы</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Технические переводы</li>
+<li><i class="fas fa-check text-success me-2"></i>Копирайтинг</li>
+<li><i class="fas fa-check text-success me-2"></i>SEO-оптимизация</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 1000₴/час
+                        </button>
+</div>
+</div>
+</div><div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Веб-разработка" class="service-image w-100" src="https://www.it-courses.by/wp-content/uploads/2018/06/20-Most-Common-Work-from-Home-Job-Titles.jpg"/>
+<div class="p-4">
+<h3 class="mb-3">Веб-разработка</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Корпоративные сайты</li>
+<li><i class="fas fa-check text-success me-2"></i>Интернет-магазины</li>
+<li><i class="fas fa-check text-success me-2"></i>Web-приложения</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 25 000₴
+                        </button>
+</div>
+</div>
+</div><div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Дизайн" class="service-image w-100" src="https://seo-lebedev.ru/wp-content/webp-express/webp-images/uploads/2024/05/160890.jpg.webp"/>
+<div class="p-4">
+<h3 class="mb-3">Дизайн</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Логотипы</li>
+<li><i class="fas fa-check text-success me-2"></i>Фирменный стиль</li>
+<li><i class="fas fa-check text-success me-2"></i>UI/UX дизайн</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 12 500₴
+                        </button>
+</div>
+</div>
+</div><div class="col-lg-4 col-md-6">
+<div class="service-card">
+<img alt="Переводы" class="service-image w-100" src="https://png.pngtree.com/png-clipart/20230923/original/pngtree-multilingual-students-chat-on-phone-greeting-in-different-languages-vector-png-image_12550767.png"/>
+<div class="p-4">
+<h3 class="mb-3">Переводы</h3>
+<ul class="list-unstyled mb-4">
+<li><i class="fas fa-check text-success me-2"></i>Технические переводы</li>
+<li><i class="fas fa-check text-success me-2"></i>Копирайтинг</li>
+<li><i class="fas fa-check text-success me-2"></i>SEO-оптимизация</li>
+</ul>
+<button class="btn btn-primary w-100 btn-custom" data-bs-target="#orderModal" data-bs-toggle="modal">
+                            Заказать от 1000₴/час
+                        </button>
+</div>
+</div>
+</div></div>
+</div>
 
-    <!-- Главный баннер -->
-    <header class="hero-section text-white">
-        <div class="container text-center">
-            <h1 class="display-3 fw-bold mb-4">Цифровые решения <br/>для вашего бизнеса</h1>
-            <p class="lead mb-4 fs-5 opacity-75">От идеи до реализации - полный цикл разработки</p>
-            <div class="d-flex gap-3 justify-content-center">
-                <a class="btn btn-lg btn-primary btn-custom" href="#services">
-                    <i class="fas fa-code me-2"></i>Наши услуги
-                </a>
-                <a class="btn btn-lg btn-outline-light btn-custom" href="#contact">
-                    <i class="fas fa-phone me-2"></i>Контакты
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Секция услуг -->
-    <section class="py-5" id="services">
-        <!-- Ваш оригинальный код секции услуг -->
-    </section>
-
-    <!-- Обновленная форма заказа -->
-    <div class="modal fade" id="orderModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content rounded-4 overflow-hidden border-3 border-primary">
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title"><i class="fas fa-shopping-cart me-2"></i>Оформление заказа</h5>
-                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body bg-light">
-                    <div class="row g-4">
-                        <div class="col-md-5">
-                            <img id="serviceImage" class="img-fluid rounded-3 shadow-lg" 
-                                src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png"
-                                alt="Выбранная услуга">
-                            <div class="mt-4" id="priceDisplay">
-                                💸 Итоговая стоимость: <span id="finalPrice" class="text-success">—</span>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <form id="orderForm" class="needs-validation" novalidate>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="clientName" name="client_name" required>
-                                    <label for="clientName"><i class="fas fa-user me-2"></i>Ваше имя</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="clientEmail" name="client_email" required>
-                                    <label for="clientEmail"><i class="fas fa-envelope me-2"></i>Email</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="tel" class="form-control phone-input" id="clientPhone" 
-                                        name="client_phone" pattern="\+?[0-9\s\-()]{10,15}" required>
-                                    <label for="clientPhone"><i class="fas fa-phone me-2"></i>Телефон</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="clientTelegram" name="client_telegram" required>
-                                    <label for="clientTelegram"><i class="fab fa-telegram-plane me-2"></i>Telegram</label>
-                                </div>
-                                <!-- Остальные элементы формы -->
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section id="portfolio" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title">Портфолио</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg?text=Проект+1" class="img-fluid rounded shadow" alt="Проект 1">
+        <h5 class="mt-3">Проект 1</h5>
+        <p class="small text-muted">Описание проекта или типа работ</p>
+      </div>
+      <div class="col-md-4">
+        <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg?text=Проект+2" class="img-fluid rounded shadow" alt="Проект 2">
+        <h5 class="mt-3">Проект 2</h5>
+        <p class="small text-muted">Описание проекта или типа работ</p>
+      </div>
+      <div class="col-md-4">
+        <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg?text=Проект+3" class="img-fluid rounded shadow" alt="Проект 3">
+        <h5 class="mt-3">Проект 3</h5>
+        <p class="small text-muted">Описание проекта или типа работ</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Остальные секции -->
-    <!-- ... Ваш оригинальный код для портфолио, блога, команды и контактов ... -->
+<section id="blog" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title">Блог</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg?text=Блог+1" class="card-img-top" alt="Блог 1">
+          <div class="card-body">
+            <h5 class="card-title">Новая статья</h5>
+            <p class="card-text">Краткое описание или анонс публикации. Подробнее — внутри.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Читать</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg?text=Блог+2" class="card-img-top" alt="Блог 2">
+          <div class="card-body">
+            <h5 class="card-title">Апдейт платформы</h5>
+            <p class="card-text">Мы обновили функционал сайта и сделали его ещё удобнее.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Читать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="footer bg-dark text-light py-5">
-        <!-- Ваш оригинальный код футера -->
-    </footer>
+<section id="team" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Наша команда</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-3 col-sm-6">
+        <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg" class="img-fluid rounded-circle shadow-sm mb-3" alt="Анна">
+        <h5>Анна Иванова</h5>
+        <p class="small text-muted">Дизайнер</p>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg" class="img-fluid rounded-circle shadow-sm mb-3" alt="Сергей">
+        <h5>Сергей Петров</h5>
+        <p class="small text-muted">Разработчик</p>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg" class="img-fluid rounded-circle shadow-sm mb-3" alt="Елена">
+        <h5>Елена Смирнова</h5>
+        <p class="small text-muted">Копирайтер</p>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <img src="https://cdn1.riastatic.com/photosnew/auto/photo/audi_a7-sportback__455253871f.jpg" class="img-fluid rounded-circle shadow-sm mb-3" alt="Максим">
+        <h5>Максим Козлов</h5>
+        <p class="small text-muted">Проект-менеджер</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Скрипты -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Исправленный скрипт загрузки
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
+</section>
+<section class="py-5 bg-dark text-white" id="contact">
+<div class="container">
+<h2 class="section-title text-white">Контакты</h2>
+<div class="row g-4">
+<div class="col-md-4">
+<a class="text-white text-decoration-none" href="mailto:info@lumostudio.com">
+<div class="p-4 bg-secondary rounded shadow text-center contact-card" data-tooltip="Напишите нам на email">
+<i class="fas fa-envelope fa-2x mb-3"></i>
+<h5>Email</h5>
+<p>info@lumostudio.com</p>
+</div>
+</a>
+</div>
+<div class="col-md-4">
+<a class="text-white text-decoration-none" href="https://t.me/LumoCompany" rel="noopener" target="_blank">
+<div class="p-4 bg-secondary rounded shadow text-center contact-card" data-tooltip="Напишите нам в Telegram">
+<i class="fab fa-telegram fa-2x mb-3"></i>
+<h5>Telegram</h5>
+<p>@LumoCompany</p>
+</div>
+</a>
+</div>
+<div class="col-md-4">
+<a class="text-white text-decoration-none" href="https://wa.me/380991194223" rel="noopener" target="_blank">
+<div class="p-4 bg-secondary rounded shadow text-center contact-card" data-tooltip="Напишите нам в WhatsApp">
+<i class="fab fa-whatsapp fa-2x mb-3"></i>
+<h5>WhatsApp</h5>
+<p>+380991194223</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Модальное окно заказа -->
+<div class="modal fade" id="orderModal" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Оформление заказа</h5>
+<button class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6">
+<img class="service-image w-100 rounded" src="https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-9420-61f7-aa40-c82a3910e2ab/raw?se=2025-05-15T19%3A46%3A01Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;scid=00000000-0000-0000-0000-000000000000&amp;skoid=c156db82-7a33-468f-9cdd-06af263ceec8&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-05-14T22%3A17%3A59Z&amp;ske=2025-05-15T22%3A17%3A59Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=aplnjwQwYJRd/STswmC/p1lg2D6GUYMutAl/CW3WCww%3D"/>
+</div>
+<div class="col-md-6">
+<form class="needs-validation" id="orderForm" novalidate="">
+<div class="mb-3">
+<input class="form-control form-control-lg" placeholder="Ваше имя" required="" type="text"/>
+<div class="invalid-feedback">Пожалуйста, введите ваше имя</div>
+</div>
+<div class="mb-3">
+<input class="form-control form-control-lg" placeholder="Email" required="" type="email"/>
+<div class="invalid-feedback">Пожалуйста, введите корректный email</div>
+</div>
+<div class="mb-3">
+<select class="form-select form-select-lg" required="">
+<option value="">Выберите услугу</option>
+<option>Веб-разработка</option>
+<option>Дизайн</option>
+<option>Переводы</option>
+</select>
+<div class="invalid-feedback">Пожалуйста, выберите услугу</div>
+</div>
+<div class="mb-3">
+<textarea class="form-control form-control-lg" placeholder="Описание проекта" required="" rows="4"></textarea>
+<div class="invalid-feedback">Пожалуйста, опишите ваш проект</div>
+</div>
+<button class="btn btn-primary w-100 btn-custom" type="submit">Отправить заявку</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer bg-dark text-light py-5">
+<div class="container">
+<div class="row text-center text-md-start">
+<div class="col-md-4 mb-4 mb-md-0">
+<h5 class="footer-title mb-3">О компании</h5>
+<p>Мы — команда Lumo Studio. Помогаем бизнесам расти в цифровом мире с 2025 года.</p>
+</div>
+<div class="col-md-4 mb-4 mb-md-0">
+<h5 class="footer-title mb-3">Навигация</h5>
+<ul class="list-unstyled footer-links">
+<li><a href="#portfolio">Портфолио</a></li>
+<li><a href="#blog">Блог</a></li>
+<li><a href="#contact">Контакты</a></li>
+</ul>
+</div>
+<div class="col-md-4">
+<h5 class="footer-title mb-3">Подпишитесь</h5>
+<p>Новости и акции на вашу почту</p>
+<form class="subscribe-form d-flex flex-column flex-sm-row gap-2" onsubmit="event.preventDefault(); alert('Спасибо за подписку!');">
+<input class="form-control" placeholder="Ваш email" required="" type="email"/>
+<button class="btn btn-primary px-4" type="submit">Подписаться</button>
+</form>
+</div>
+</div>
+<hr class="footer-divider my-4"/>
+<div class="text-center small opacity-75">
+      © 2025 LumoStudio. Все права защищены.
+    </div>
+</div>
+</footer>
+<!-- Скрипты -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Инициализация после загрузки страницы
+    document.addEventListener('DOMContentLoaded', () => {
+        // Скрыть прелоадер
+        document.querySelector('.preloader').style.display = 'none';
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({behavior: 'smooth', block: 'start'});
+                }
+            });
+        });
+
+        // Кнопка "Наверх"
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.classList.toggle('show', window.scrollY > 300);
+        });
+
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Обработка формы
+        const form = document.getElementById('orderForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
             
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 600);
-            }, 1500);
-        });
+            if (!form.checkValidity()) {
+                e.stopPropagation();
+                form.classList.add('was-validated');
+                return;
+            }
 
-        // Скрипт для формы
-        document.addEventListener('DOMContentLoaded', () => {
-            // ... Весь функционал формы из предыдущего ответа ...
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Отправка...';
+
+            try {
+                // Здесь код для отправки данных
+                // Пример для Telegram:
+                const botToken = 'ВАШ_BOT_TOKEN';
+                const chatId = 'ВАШ_CHAT_ID';
+                const formData = {
+                    name: e.target[0].value,
+                    email: e.target[1].value,
+                    service: e.target[2].value,
+                    details: e.target[3].value
+                };
+
+                const text = `📝 Новая заявка!\nИмя: ${formData.name}\nEmail: ${formData.email}\nУслуга: ${formData.service}\nОписание: ${formData.details}`;
+                
+                await fetch(https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)});
+                
+                submitBtn.innerHTML = '✅ Отправлено!';
+                setTimeout(() => {
+                    bootstrap.Modal.getInstance(document.getElementById('orderModal')).hide();
+                    form.reset();
+                    form.classList.remove('was-validated');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Отправить заявку';
+                }, 1500);
+            } catch (error) {
+                submitBtn.innerHTML = '❌ Ошибка!';
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Отправить заявку';
+                }, 2000);
+                console.error('Ошибка:', error);
+            }
         });
-    </script>
+    });
+</script>
+<div class="modal fade" id="authModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Личный кабинет</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="fas fa-user-lock fa-3x mb-3 text-secondary"></i>
+        <p class="mb-4">Раздел находится в разработке. Скоро здесь появится вход в аккаунт.</p>
+        <button class="btn btn-outline-secondary w-100" disabled>Войти</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+
+    // Ожидаем минимум 3 секунды, даже если страница загрузилась быстрее
+    setTimeout(() => {
+      preloader.style.opacity = '0';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600); // Время исчезновения
+    }, 3000); // Минимальная задержка 3 секунды (можешь поставить 4000 для 4 сек.)
+  });
+</script>
+
+
 </body>
 </html>
